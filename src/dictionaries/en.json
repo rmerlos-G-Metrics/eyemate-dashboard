@@ -118,6 +118,18 @@
     "datenschutz": "Privacy Policy",
     "toggleLanguage": "Switch to German",
     "openMenu": "Open main menu",
-    "closeMenu": "Close main menu"
+    "closeMenu": "Close main menu",
+    "loginButton": "Login"
+  },
+  "login": {
+    "title": "Dashboard",
+    "subtitle": "Enter your credentials to access.",
+    "emailLabel": "Username / Email",
+    "emailPlaceholder": "email@g-metrics.com",
+    "passwordLabel": "Password",
+    "forgotPassword": "Forgot password?",
+    "submitButton": "Access Dashboard",
+    "loading": "Authenticating...",
+    "secureNotice": "Made by G-Metrics in Hannover"
   }
 }

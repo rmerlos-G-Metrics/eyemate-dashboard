@@ -118,6 +118,18 @@
     "datenschutz": "Datenschutz",
     "toggleLanguage": "Zu Englisch wechseln",
     "openMenu": "Hauptmenü öffnen",
-    "closeMenu": "Hauptmenü schließen"
+    "closeMenu": "Hauptmenü schließen",
+    "loginButton" : "Anmelden"
+  },
+  "login": {
+    "title": "Dashboard",
+    "subtitle": "Geben Sie Ihre Anmeldedaten ein.",
+    "emailLabel": "Benutzername / E-Mail",
+    "emailPlaceholder": "email@g-metrics.com",
+    "passwordLabel": "Passwort",
+    "forgotPassword": "Passwort vergessen?",
+    "submitButton": "Zum Dashboard",
+    "loading": "Authentifizierung...",
+    "secureNotice": "Entwicklet von G-Metrics in Hannover"
   }
 }

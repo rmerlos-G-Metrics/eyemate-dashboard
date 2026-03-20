@@ -8,6 +8,7 @@ interface HeroProps {
     title: string;
     highlight: string;
     subtitle: string;
+    madeBy: string;
   };
 }
 

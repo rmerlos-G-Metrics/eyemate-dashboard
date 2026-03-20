@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import path from 'path';
 
 interface NavbarProps {
   lang: string;
@@ -17,6 +16,7 @@ interface NavbarProps {
     toggleLanguage: string;
     openMenu: string;
     closeMenu: string;
+    loginButton: string;
   };
 }
 
@@ -47,6 +47,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
     { name: dictionary.home, href: '/' },
     { name: dictionary.impressum, href: '/impressum' },
     { name: dictionary.datenschutz, href: '/datenschutz' },
+    
   ];
 
   return (
@@ -105,6 +106,12 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
         {/* Right section*/}
         <div className="flex items-center gap-2">
           <Link
+            href={`/${lang}/login`}
+            className="hidden md:flex items-center justify-center px-5 py-2.5 bg-health-100/90 border border-gray-200 text-gray-900 rounded-md text-sm font-semibold shadow-sm hover:bg-gray-50 hover:text-primary transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 min-h-[2.75rem]"
+          >
+            {dictionary.loginButton || 'Login'}
+          </Link>
+          <Link
             href={redirectedPathName(targetLanguage)}
             aria-label={dictionary.toggleLanguage}
             className="hidden md:flex items-center justify-center w-11 h-11 rounded-md text-muted-foreground hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary font-medium"
@@ -157,7 +164,14 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
                 </Link>
               ))}
               <Link
-                 href={`/${lang === 'en' ? 'de' : 'en'}`}
+                href={`/${lang}/login`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full text-center px-3 py-3 bg-primary text-white rounded-md text-base font-medium shadow-sm"
+              >
+                {dictionary.loginButton || 'Login'}
+              </Link>
+              <Link
+                 href={redirectedPathName(lang === 'en' ? 'de' : 'en')}
                  className="block px-3 py-3 mt-4 border-t border-border text-muted-foreground font-medium"
                  onClick={() => setIsMobileMenuOpen(false)}
               >
