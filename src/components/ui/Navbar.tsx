@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ThemeToggle } from './ThemeToggle';
 
 interface NavbarProps {
   lang: string;
@@ -65,10 +66,10 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* Left section */}
-        <div className="flex-shrink-0 flex items-center">
+        <div className="shrink-0 flex items-center">
           <Link
             href={`/${lang}`}
-            className="flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md min-h-[2.75rem] min-w-[2.75rem]"
+            className="flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md min-h-11 min-w-11"
             aria-label={dictionary.logoAlt}
           >
             <Image 
@@ -79,9 +80,6 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
               className="object-contain"
               priority
             />
-            <span className="text-xl font-semibold tracking-tight hidden sm:block">
-              Dashboard
-            </span>
           </Link>
         </div>
 
@@ -92,7 +90,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
               key={link.name}
               href={`/${lang}${link.href}`}
               aria-current={isActive(link.href) ? 'page' : undefined}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-[2.75rem] flex items-center ${
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-11 flex items-center ${
                 isActive(link.href)
                   ? 'text-primary bg-primary/10'
                   : 'text-muted-foreground hover:text-primary hover:bg-muted'
@@ -107,7 +105,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
         <div className="flex items-center gap-2">
           <Link
             href={`/${lang}/login`}
-            className="hidden md:flex items-center justify-center px-5 py-2.5 bg-health-100/90 border border-gray-200 text-gray-900 rounded-md text-sm font-semibold shadow-sm hover:bg-gray-50 hover:text-primary transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 min-h-[2.75rem]"
+            className="hidden md:flex items-center justify-center px-5 py-2.5 bg-health-100/90 border border-gray-200 text-gray-900 rounded-md text-sm font-semibold shadow-sm hover:bg-gray-50 hover:text-primary transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 min-h-11"
           >
             {dictionary.loginButton || 'Login'}
           </Link>
@@ -134,6 +132,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
               <path strokeLinecap="round" strokeLinejoin="round" d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"} />
             </svg>
           </button>
+          <ThemeToggle></ThemeToggle>
         </div>
       </div>
 
@@ -154,7 +153,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
                   key={link.name}
                   href={`/${lang}${link.href}`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-3 py-3 rounded-md text-base font-medium min-h-[2.75rem] ${
+                  className={`block px-3 py-3 rounded-md text-base font-medium min-h-11 ${
                     isActive(link.href)
                       ? 'text-primary bg-primary/10'
                       : 'text-muted-foreground hover:text-primary hover:bg-muted'

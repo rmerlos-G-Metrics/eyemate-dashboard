@@ -2,7 +2,7 @@
   "hero": {
     "title": "Ocular Intelligence.",
     "highlight": "Absolute Precision.",
-    "subtitle": "Engineering a state-of-the-art biometric sensor with high-fidelity AI to deliver the most accurate, deterministic glaucoma monitoring available today.",
+    "subtitle": "Engineering a state-of-the-art biometric sensor with AI to deliver the most accurate, deterministic glaucoma monitoring available today.",
     "madeBy": "Made by"
   },
   "legal": {
@@ -119,7 +119,8 @@
     "toggleLanguage": "Switch to German",
     "openMenu": "Open main menu",
     "closeMenu": "Close main menu",
-    "loginButton": "Login"
+    "loginButton": "Login",
+    "logoutButton": "Logout"
   },
   "login": {
     "title": "Dashboard",

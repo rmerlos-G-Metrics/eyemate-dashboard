@@ -2,7 +2,7 @@
   "hero": {
     "title": "Okulare Intelligenz.",
     "highlight": "Absolute Präzision.",
-    "subtitle": "Die Verbindung modernster biometrischer Sensorik mit High-Fidelity-KI für das präziseste und deterministischste Glaukom-Monitoring unserer Zeit.",
+    "subtitle": "Die Verbindung modernster biometrischer Sensorik mit KI für das präziseste und deterministischste Glaukom-Monitoring unserer Zeit.",
     "madeBy": "Entwickelt von"
   },
   "legal": {
@@ -119,7 +119,8 @@
     "toggleLanguage": "Zu Englisch wechseln",
     "openMenu": "Hauptmenü öffnen",
     "closeMenu": "Hauptmenü schließen",
-    "loginButton" : "Anmelden"
+    "loginButton" : "Anmelden",
+    "logoutButton": "Abmelden"
   },
   "login": {
     "title": "Dashboard",

@@ -116,7 +116,7 @@ export default function LoginForm({ lang, dictionary }: LoginFormProps) {
           type="submit"
           disabled={isLoading}
           aria-busy={isLoading}
-          className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-lg shadow-md text-sm font-bold text-white bg-health-900 glass-panel hover:bg-health-900/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all disabled:opacity-70 disabled:cursor-not-allowed min-h-[3rem] mt-2"
+          className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-lg shadow-md text-sm font-bold text-white bg-health-900  hover:bg-health-900/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all disabled:opacity-70 disabled:cursor-not-allowed min-h-[3rem] mt-2"
         >
           {isLoading ? (
             <span className="flex items-center gap-2">
