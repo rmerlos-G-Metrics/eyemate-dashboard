@@ -1,6 +1,7 @@
 import { getDictionary, Locale } from '@/dictionaries/getDictionary';
 import LoginForm from '@/components/auth/LoginForm';
 import { Metadata } from 'next';
+import ProviderPicker from '@/components/auth/ProviderPicker';
 
 export const metadata: Metadata = {
   title: 'Eyemate-Dashboard | G-Metrics',
@@ -29,7 +30,8 @@ export default async function LoginPage({
       
       {/* Login Form Container */}
       <div className="relative z-10 w-full max-w-md px-4 sm:px-0">
-        <LoginForm key={lang} lang={lang} dictionary={dictionary} />
+        {/* <LoginForm key={lang} lang={lang} dictionary={dictionary} /> */}
+        <ProviderPicker dictionary={dictionary}></ProviderPicker>
       </div>
     </main>
   );

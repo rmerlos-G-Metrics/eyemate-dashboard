@@ -132,5 +132,19 @@
     "submitButton": "Access Dashboard",
     "loading": "Authenticating...",
     "secureNotice": "Made by G-Metrics in Hannover"
+  },
+  "auth": {
+    "providerPicker": {
+      "title": "Select Clinical Provider",
+      "subtitle": "Choose your healthcare institution to securely connect your EHR.",
+      "connectButton": "Connect EHR",
+      "statusOnline": "Online",
+      "providers": {
+        "smartLauncher": {
+          "name": "SMART DEMO HOSPITAL",
+          "description": "FHIR R4 Sandbox Environment"
+        }
+      }
+    }
   }
 }

@@ -132,5 +132,19 @@
     "submitButton": "Zum Dashboard",
     "loading": "Authentifizierung...",
     "secureNotice": "Entwicklet von G-Metrics in Hannover"
+  },
+  "auth": {
+    "providerPicker": {
+      "title": "Klinischen Anbieter auswählen",
+      "subtitle": "Wählen Sie Ihre Gesundheitseinrichtung, um Ihre EHR sicher zu verbinden.",
+      "connectButton": "EHR Verbinden",
+      "statusOnline": "Online",
+      "providers": {
+        "smartLauncher": {
+          "name": "SMART DEMO KRANKENHAUS",
+          "description": "FHIR R4 Sandbox-Umgebung"
+        }
+      }
+    }
   }
 }
