@@ -146,5 +146,21 @@
         }
       }
     }
+  },
+  "dashboard_FHIR": {
+    "errorFetching": "Error fetching patient data.",
+    "titlePrefix": "Clinical",
+    "titleHighlight": "Dashboard",
+    "connectionStatus": "Secure EHR connection established.",
+    "fhirId": "FHIR ID",
+    "dob": "Date of Birth",
+    "gender": "Gender",
+    "unknown": "Unknown",
+    "tokenActive": "EHR Token Active",
+    "conditionsTitle": "Clinical Conditions",
+    "statusActive": "Active",
+    "statusResolved": "Resolved",
+    "statusUnknown": "Unknown Status",
+    "noConditions": "No conditions found."
   }
 }

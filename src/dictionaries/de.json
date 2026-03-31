@@ -146,5 +146,21 @@
         }
       }
     }
+  },
+  "dashboard_FHIR": {
+    "errorFetching": "Fehler beim Abrufen der Patientendaten.",
+    "titlePrefix": "Klinisches",
+    "titleHighlight": "Dashboard",
+    "connectionStatus": "Sichere EHR-Verbindung hergestellt.",
+    "fhirId": "FHIR ID",
+    "dob": "Geburtsdatum",
+    "gender": "Geschlecht",
+    "unknown": "Unbekannt",
+    "tokenActive": "EHR Token Aktiv",
+    "conditionsTitle": "Klinische Diagnosen",
+    "statusActive": "Aktiv",
+    "statusResolved": "Geloest",
+    "statusUnknown": "Unbekannter Status",
+    "noConditions": "Keine Diagnosen gefunden."
   }
 }

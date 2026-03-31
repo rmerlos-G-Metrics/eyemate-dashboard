@@ -23,7 +23,7 @@ export async function initiateSmartLaunch(iss: string) {
   const config = await response.json();
   const authEndpoint = config.authorization_endpoint;
 
-  const clientId = process.env.NEXT_PUBLIC_SMART_CLIENT_ID || 'your-gmetrics-client-id';
+  const clientId = process.env.NEXT_PUBLIC_SMART_CLIENT_ID || 'gmetrics-client-id';
   const redirectUri = `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/auth/callback`;
 
   // 3. Define Clinical Scopes
@@ -32,21 +32,28 @@ export async function initiateSmartLaunch(iss: string) {
     'openid',
     'fhirUser',
     'patient/Patient.read',
-    'patient/Observation.read', 
-    'offline_access'
+    'patient/Condition.read',
+    'patient/Observation.read'
   ].join(' ');
 
   // 4. Generate & Store State for CSRF Protection
   const state = crypto.randomUUID();
   
-  // 👉 THE FIX: Await the cookies() promise in Next.js 16
   const cookieStore = await cookies();
+
   cookieStore.set('smart_auth_state', state, { 
     httpOnly: true, 
     secure: process.env.NODE_ENV === 'production',
     maxAge: 60 * 10, // 10 minutes 
     path: '/' 
   });
+
+  cookieStore.set('smart_iss', iss, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 60*10,
+    path: '/'
+  })
 
   // 5. Construct the Authorization URL
   const authUrl = new URL(authEndpoint);

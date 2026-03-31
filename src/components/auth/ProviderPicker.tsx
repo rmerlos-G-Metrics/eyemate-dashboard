@@ -28,6 +28,7 @@ export default function ProviderPicker({ dictionary }: ProviderPickerProps) {
       description: dictionary.auth.providerPicker.providers.smartLauncher.description,
       //Get an App URL from the following link https://launch.smarthealthit.org
       iss: "https://launch.smarthealthit.org/v/r4/sim/WzIsIiIsIiIsIkFVVE8iLDAsMCwwLCIiLCIiLCIiLCIiLCIiLCIiLCIiLDAsMSwiIl0/fhir",
+      //iss: "https://smart.argo.run/v/r4/sim/eyJtIjoiMSIsImsiOiIxIiwiaSI6IjEiLCJqIjoiMSIsImIiOiI4N2EzMzlkMC04Y2FlLTQxOGUtODljNy04NjUxZTZhYWIzYzYifQ/fhir",
       status: dictionary.auth.providerPicker.statusOnline,
     },
     // Future providers will be added here
@@ -41,15 +42,16 @@ export default function ProviderPicker({ dictionary }: ProviderPickerProps) {
 
     if (!provider) return;
 
-    // React 18+ best practice for Next.js Server Actions
+    // React 18+ best practice for Next.js Server Actions 
     startTransition(async () => {
       try {
         await initiateSmartLaunch(provider.iss);
       } catch (err) {
         console.error("SMART Launch Error:", err);
-        setError("Verbindung fehlgeschlagen. Bitte versuchen Sie es später erneut.");
+        //setError("Verbindung fehlgeschlagen. Bitte versuchen Sie es später erneut.");
       }
-    });
+    });    
+    
   };
 
   return (
