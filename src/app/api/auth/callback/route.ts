@@ -50,6 +50,8 @@ export async function GET(request: NextRequest) {
     // 4. Securely store the Access Token and Patient ID in HttpOnly cookies
     cookieStore.set('fhir_access_token', tokenData.access_token, { httpOnly: true, path: '/' });
     cookieStore.set('fhir_patient_id', tokenData.patient, { httpOnly: true, path: '/' });
+    // Save FHIR Server base URL 
+    cookieStore.set('fhir_base_url', iss, {httpOnly: true, path: '/'});
     
     if (tokenData.refresh_token) {
       cookieStore.set('fhir_refresh_token', tokenData.refresh_token, { httpOnly: true, path: '/' });

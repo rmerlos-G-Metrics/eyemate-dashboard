@@ -33,6 +33,7 @@ export async function initiateSmartLaunch(iss: string) {
     'fhirUser',
     'patient/Patient.read',
     'patient/Condition.read',
+    'patient/Condition.write',
     'patient/Observation.read'
   ].join(' ');
 

@@ -8,6 +8,7 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getDictionary, Locale } from '@/dictionaries/getDictionary';
+import AddConditionButtonTest from '@/components/clinical/AddCoditionButtonTest';
 
 interface DashboardPageProps {
   params: Promise<{
@@ -63,6 +64,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
   const givenName = officialName?.given?.join(' ') || '';
   const familyName = officialName?.family || '';
   const fullName = `${givenName} ${familyName}`.trim();
+
 
   return (
     <main className='m-20'>
@@ -144,7 +146,9 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
             })}
           </ul>
         )}
+        <AddConditionButtonTest></AddConditionButtonTest>
       </div>
+      
 
     </div>
     </main>
