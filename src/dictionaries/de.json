@@ -119,8 +119,7 @@
     "toggleLanguage": "Zu Englisch wechseln",
     "openMenu": "Hauptmenü öffnen",
     "closeMenu": "Hauptmenü schließen",
-    "loginButton" : "Anmelden",
-    "logoutButton": "Abmelden"
+    "loginButton": "Anmelden"
   },
   "login": {
     "title": "Dashboard",
@@ -132,5 +131,57 @@
     "submitButton": "Zum Dashboard",
     "loading": "Authentifizierung...",
     "secureNotice": "Entwicklet von G-Metrics in Hannover"
+  },
+  "auth": {
+    "roleSelector": {
+      "title": "Willkommen",
+      "subtitle": "Bitte wählen Sie Ihren Profiltyp aus, um fortzufahren.",
+      "patient": {
+        "title": "Patient(in)",
+        "description": "Greifen Sie auf Ihre Überwachungsdaten zu"
+      },
+      "medicalProfessional": {
+        "title": "Augenarzt(Augenärztin)",
+        "description": "Verwalten Sie Patienten und klinische Daten"
+      }
+    },
+    "institutionLogin": {
+      "title": "Wählen Sie Ihre Institution",
+      "description": "Anmeldung als: ",
+      "connectButton": "EHR Verbinden",
+      "connectingButton" : "Verbinden mit EHR...",
+      "smartLauncher": {
+        "name": "SMART DEMO KRANKENHAUS",
+        "description": "FHIR R4 Sandbox-Umgebung"
+      }
+    },
+    "providerPicker": {
+      "title": "Klinischen Anbieter auswählen",
+      "subtitle": "Wählen Sie Ihre Gesundheitseinrichtung, um Ihre EHR sicher zu verbinden.",
+      "connectButton": "EHR Verbinden",
+      "statusOnline": "Online",
+      "providers": {
+        "smartLauncher": {
+          "name": "SMART DEMO KRANKENHAUS",
+          "description": "FHIR R4 Sandbox-Umgebung"
+        }
+      }
+    }
+  },
+  "dashboard_FHIR": {
+    "errorFetching": "Fehler beim Abrufen der Patientendaten.",
+    "titlePrefix": "Klinisches",
+    "titleHighlight": "Dashboard",
+    "connectionStatus": "Sichere EHR-Verbindung hergestellt.",
+    "fhirId": "FHIR ID",
+    "dob": "Geburtsdatum",
+    "gender": "Geschlecht",
+    "unknown": "Unbekannt",
+    "tokenActive": "EHR Token Aktiv",
+    "conditionsTitle": "Klinische Diagnosen",
+    "statusActive": "Aktiv",
+    "statusResolved": "Geloest",
+    "statusUnknown": "Unbekannter Status",
+    "noConditions": "Keine Diagnosen gefunden."
   }
 }

@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# G-Metrics Clinical Dashboard 👁️
 
-## Getting Started
+> **Enterprise-grade MedTech platform for Glaucoma monitoring and AI-driven predictive care.**
 
-First, run the development server:
+This repository contains the frontend application for the G-Metrics Clinical Dashboard
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🏗️ Architectural Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project is built utilizing the Next.js App Router. The architecture separates clinical data processing from client-side rendering.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Tech Stack
+* **Framework:** Next.js 16 (App Router) + React 19
+* **Styling:** Tailwind CSS v4
+* **Animations:** Framer Motion
+* **Clinical Standards:** SMART on FHIR (R4)
+* **Language/Typing:** TypeScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Key Architectural Decisions
 
-## Learn More
+1. **Server-Side FHIR Operations:** All interactions with the FHIR server (fetching patients, writing conditions) happen on the server via Server Components or Server Actions. Raw clinical data and OAuth tokens **never** enter the client's browser bundle.
+2. **Secure Token Management:** SMART on FHIR access tokens and patient contexts are managed exclusively via `HttpOnly`, `Secure` cookies. 
+3. **Native Internationalization (i18n):** The app utilizes a dynamic dictionary approach (`src/dictionaries`) routed through `[lang]` parameters, supporting seamless switching between English (`en`) and German (`de`).
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+rmerlos-g-metrics/
+├── src/
+│   ├── actions/          # Server Actions (secure processes like SMART Launch)
+│   ├── app/              # Next.js App Router 
+│   │   ├── api/          # API Routes (OAuth callbacks, webhooks)
+│   │   └── [lang]/       # i18n Route Grouping
+│   │       ├── (auth)/   # Route group for login/auth flow (bypasses url segment)
+│   │       ├── (marketing)/ # Route group for landing page, impressum, GDPR
+│   │       └── dashboard/# Protected dashboard route
+│   ├── components/       # Reusable React UI Components
+│   │   ├── auth/         # Login forms, provider pickers
+│   │   ├── clinical/     # Patient cards, FHIR condition buttons
+│   │   ├── sections/     # Large marketing page sections (Hero, Tech)
+│   │   ├── theme/        # Dark/Light mode providers
+│   │   └── ui/           # Generic components (Buttons, Navbars, Footers)
+│   ├── dictionaries/     # JSON files for translation strings (en.json, de.json)
+│   └── middleware.ts     # Edge routing logic (i18n redirection & route protection)
+├── public/               # Public Assets (images)
+└── package.json          # Dependencies and scripts

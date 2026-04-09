@@ -45,13 +45,13 @@ export default function Hero({dictionary}: HeroProps) {
           transition={{ delay: 0.3, duration: 0.6 }}
         >
           <div className='flex flex-col items-center text-center gap-5'>
-            <p className="text-sm font-medium text-health-800 dark:text-health-200">
+            <p className="text-md font-medium text-health-800 dark:text-health-200">
               {dictionary.madeBy}
             </p>
             <Image
               src="/images/G-Metrics-logo.png"
               alt="G-Metrics-Logo"
-              width={150}
+              width={250}
               height={150}
             />
           </div>

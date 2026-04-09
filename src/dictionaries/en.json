@@ -119,8 +119,7 @@
     "toggleLanguage": "Switch to German",
     "openMenu": "Open main menu",
     "closeMenu": "Close main menu",
-    "loginButton": "Login",
-    "logoutButton": "Logout"
+    "loginButton": "Login"
   },
   "login": {
     "title": "Dashboard",
@@ -132,5 +131,57 @@
     "submitButton": "Access Dashboard",
     "loading": "Authenticating...",
     "secureNotice": "Made by G-Metrics in Hannover"
+  },
+  "auth": {
+    "roleSelector": {
+      "title": "Welcome",
+      "subtitle": "Please select your profile type to continue.",
+      "patient": {
+        "title": "Patient",
+        "description": "Access your monitoring data"
+      },
+      "medicalProfessional": {
+        "title": "Eye specialist",
+        "description": "Manage patients and clinical data"
+      }
+    },
+    "institutionLogin": {
+      "title": "Select your Institution",
+      "description": "Logging in as: ",
+      "connectButton": "Connect EHR",
+      "connectingButton": "Connecting to EHR...",
+      "smartLauncher": {
+        "name": "SMART DEMO HOSPITAL",
+        "description": "FHIR R4 Sandbox Environment"
+      }
+    },
+    "providerPicker": {
+      "title": "Select Clinical Provfeaider",
+      "subtitle": "Choose your healthcare institution to securely connect your EHR.",
+      "connectButton": "Connect EHR",
+      "statusOnline": "Online",
+      "providers": {
+        "smartLauncher": {
+          "name": "SMART DEMO HOSPITAL",
+          "description": "FHIR R4 Sandbox Environment"
+        }
+      }
+    }
+  },
+  "dashboard_FHIR": {
+    "errorFetching": "Error fetching patient data.",
+    "titlePrefix": "Clinical",
+    "titleHighlight": "Dashboard",
+    "connectionStatus": "Secure EHR connection established.",
+    "fhirId": "FHIR ID",
+    "dob": "Date of Birth",
+    "gender": "Gender",
+    "unknown": "Unknown",
+    "tokenActive": "EHR Token Active",
+    "conditionsTitle": "Clinical Conditions",
+    "statusActive": "Active",
+    "statusResolved": "Resolved",
+    "statusUnknown": "Unknown Status",
+    "noConditions": "No conditions found."
   }
 }

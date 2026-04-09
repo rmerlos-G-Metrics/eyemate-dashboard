@@ -165,9 +165,16 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
               <Link
                 href={`/${lang}/login`}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block w-full text-center px-3 py-3 bg-primary text-white rounded-md text-base font-medium shadow-sm"
+                className="block w-full text-center px-3 py-3 bg-health-100/90 text-gray-900 rounded-md text-base font-medium shadow-sm"
               >
-                {dictionary.loginButton || 'Login'}
+                {dictionary.loginButtonPatient || 'Patient Login'}
+              </Link>
+              <Link
+                href={`/${lang}/login`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full text-center px-3 py-3 bg-health-100/90 text-gray-900 rounded-md text-base font-medium shadow-sm"
+              >
+                {dictionary.loginButtonProvider || 'Doctor Login'}
               </Link>
               <Link
                  href={redirectedPathName(lang === 'en' ? 'de' : 'en')}
