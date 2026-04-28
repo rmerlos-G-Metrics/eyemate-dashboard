@@ -73,10 +73,10 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
             aria-label={dictionary.logoAlt}
           >
             <Image 
-              src="/images/eyemate-logo.png" 
+              src="/images/CORA_Logo_v1.png" 
               alt={dictionary.logoAlt} 
-              width={120}
-              height={40} 
+              width={130}
+              height={80} 
               className="object-contain"
               priority
             />

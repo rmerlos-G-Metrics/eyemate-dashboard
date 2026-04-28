@@ -64,9 +64,9 @@ export default function NavbarLogin({ lang, dictionary}: NavbarProps) {
           <div className="shrink-0 flex items-center">
             <Link href={`/${lang}`} className="flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md">
               <Image 
-                src="/images/eyemate_g_dashboard_logo.png" 
+                src="/images/CORA_Logo_v1.png" 
                 alt={dictionary.logoAlt} 
-                width={280} height={80} 
+                width={130} height={80} 
                 className="object-contain" priority
               />
             </Link>
