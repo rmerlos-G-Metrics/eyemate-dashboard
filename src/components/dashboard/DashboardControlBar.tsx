@@ -12,7 +12,7 @@ import React, { useMemo, useState, useRef, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion";
 import { 
     LayoutDashboard, Settings2, Eye, EyeOff, Trash2, 
-    Plus, ChevronDown, Check, User, Calendar, IdCard, Loader2, FileDown
+    Plus, ChevronDown, Check, User, Calendar, IdCard, Loader2, FileDown, UploadCloud
 } from "lucide-react";
 import { useDashboardStore } from "@/store/useDashboardStore";
 import { CreateLayoutModal } from "./CreateLayoutModal";
@@ -22,6 +22,7 @@ import { getFhirPatient } from "@/actions/getFhirPatient";
 import { pdf } from "@react-pdf/renderer";
 import { PatientReportPDF } from "./pdf/PatientReportPDF";
 import { PatientReportData } from "@/types/report";
+import { writeFHIRDocumentReference } from "@/actions/writeFHIRDocumentReference";
 
 interface DashboardControlBarProps {
     dictionary: any;
@@ -93,6 +94,24 @@ export function DashboardControlBar({dictionary}: DashboardControlBarProps) {
     useEffect(() => {
         fetchPatient();
     }, [fetchPatient]);
+
+    const [isUploading, setIsUploading] = useState(false);
+    
+    const handleTestUpload = async () => {
+        setIsUploading(true);
+        try {
+            const result = await writeFHIRDocumentReference();
+            if (result.success) {
+                alert(dictionary?.dashboard?.uploadSuccess || "Document uploaded successfully!")
+            } else {
+                alert(result.message || (dictionary?.dashboard?.uploadFailed || "Document upload failed."))
+            } 
+        } catch (error) {
+            console.error("Upload error:", error);
+        } finally {
+            setIsUploading(false);
+        }
+    }
 
     const pdfData: PatientReportData | null = useMemo(() => {
         if (!patientInfo) return null;
@@ -313,6 +332,20 @@ export function DashboardControlBar({dictionary}: DashboardControlBarProps) {
 
                         {/* Right: Actions */}
                         <div className="flex items-center gap-4 justify-self-end">
+
+                            {/* Upload Button */}
+                            <button
+                                onClick={handleTestUpload}
+                                disabled={isUploading}
+                                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-health-blue bg-white/40 hover:bg-white/60 dark:bg-slate-800/40 dark:hover:bg-slate-800/60 dark:text-blue-400 border border-health-blue/10 rounded-xl transition-all shadow-sm disabled:opacity-50"
+                            >
+                                {isUploading ? (
+                                <Loader2 className="w-4 h-4 animate-spin" />
+                                ) : (
+                                <UploadCloud className="w-4 h-4" />
+                                )}
+                                <span>{dictionary?.dashboard?.uploadTestDoc || "Upload PDF"}</span>
+                            </button>
                             
                             {/* PDF Button */}
                             {isMounted && !isEditMode && (

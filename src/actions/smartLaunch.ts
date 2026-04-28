@@ -35,7 +35,8 @@ export async function initiateSmartLaunch(iss: string, lang: string, role: strin
     'patient/Condition.read',
     'patient/Condition.write',
     'patient/Observation.read',
-    'patient/Observation.write'
+    'patient/Observation.write',
+    'patient/DocumentReference.write'
   ].join(' ');
 
   // 4. Generate & Store State for CSRF Protection
