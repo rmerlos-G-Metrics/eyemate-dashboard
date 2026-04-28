@@ -60,7 +60,7 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
             selectedIss = provider.issPatient
         }
         // pass the ROLE to the action
-        await initiateSmartLaunch(selectedIss, lang);
+        await initiateSmartLaunch(selectedIss, lang, role);
       } catch (err) {
         console.error("SMART Launch Error:", err);
         setError("Connection failed. Please try again later.");

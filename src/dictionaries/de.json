@@ -2,7 +2,7 @@
   "hero": {
     "title": "Okulare Intelligenz.",
     "highlight": "Absolute Präzision.",
-    "subtitle": "Die Verbindung modernster biometrischer Sensorik mit KI für das präziseste und deterministischste Glaukom-Monitoring unserer Zeit.",
+    "subtitle": "Die Verbindung modernster Sensorik mit KI für das präziseste und deterministischste Glaukom-Monitoring unserer Zeit.",
     "madeBy": "Entwickelt von"
   },
   "legal": {
@@ -121,6 +121,15 @@
     "closeMenu": "Hauptmenü schließen",
     "loginButton": "Anmelden"
   },
+  "navbarDashboard": {
+    "logoAlt": "Eyemate Logo",
+    "logoutButton": "Abmelden",
+    "logoutConfirmTitle": "Sitzung beenden",
+    "logoutConfirmMessage": "Sind Sie sicher, dass Sie sich vom Eyemate-Dashboard abmelden möchten? Sie müssen sich erneut authentifizieren, um auf die Daten zuzugreifen.",
+    "cancelButton": "Abbrechen",
+    "confirmLogoutButton": "Abmelden"
+
+  },
   "login": {
     "title": "Dashboard",
     "subtitle": "Geben Sie Ihre Anmeldedaten ein.",
@@ -183,5 +192,31 @@
     "statusResolved": "Geloest",
     "statusUnknown": "Unbekannter Status",
     "noConditions": "Keine Diagnosen gefunden."
+  },
+  "widgetWrapper": {
+    "resizeHintTitle": "Layout Mode",
+    "resizeHint": "Drag to move, pull bottom right corner to resize"
+  },
+  "dashboardControlBar": {
+    "doneEditing": "Bearbeiten beenden",
+    "editLayout": "Layout bearbeiten",
+    "widgetVisibilityHint": "Widget-Sichtbarkeit (Zum Umschalten klicken)",
+    "activeLayoutLabel": "Aktives Layout",
+    "createLayoutModal": {
+      "title": "Neues Layout erstellen",
+      "description": "Geben Sie Ihrer neuen Dashboard-Ansicht einen eindeutigen Namen.",
+      "inputLabel": "Layout-Name",
+      "placeholder": "Layout-Namen eingeben...",
+      "defaultViewName": "Eigene Ansicht",
+      "cancelButton": "Abbrechen",
+      "submitButton": "Layout erstellen"
+    },
+    "deleteLayoutModal": {
+      "title": "Layout löschen?",
+      "confirmPrefix": "Sind Sie sicher, dass Sie die Ansicht",
+      "confirmSuffix": "dauerhaft löschen möchten? Dieser Vorgang kann nicht rückgängig gemacht werden.",
+      "cancelButton": "Abbrechen",
+      "deleteButton": "Löschen"
+    }
   }
 }

@@ -59,14 +59,11 @@ export default function NavbarLogin({ lang, dictionary }: NavbarProps) {
         <div className="shrink-0 flex items-center">
           <Link href={`/${lang}`} className="flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md">
             <Image 
-              src="/images/eyemate-logo.png" 
+              src="/images/eyemate_g_dashboard_logo.png" 
               alt={dictionary.logoAlt} 
-              width={120} height={40} 
+              width={280} height={80} 
               className="object-contain" priority
             />
-            <span className="text-xl font-semibold tracking-tight hidden sm:block">
-              Dashboard
-            </span>
           </Link>
         </div>
 

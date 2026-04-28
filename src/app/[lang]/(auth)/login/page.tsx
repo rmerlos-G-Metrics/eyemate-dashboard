@@ -18,7 +18,6 @@ export default async function LoginPage({
   const dictionary = await getDictionary(lang);
 
   return (
-    // 1. Swapped `bg-slate-900` for `bg-background` to inherit the dynamic theme.
     <main className="min-h-screen w-full flex items-center justify-center relative bg-background overflow-hidden transition-colors duration-300">
       
       <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-health-200/40 dark:bg-health-900/20 rounded-full blur-[120px] pointer-events-none transition-colors duration-500" />

@@ -1,6 +1,6 @@
 import { getDictionary, Locale } from "@/dictionaries/getDictionary";
 import Footer from "@/components/ui/Footer";
-import NavbarLogin from "@/components/ui/NavbarLogin";
+import NavbarDashboard from "@/components/ui/NavbarDashboard";
 
 export default async function DashboardLayout({
   children,
@@ -14,11 +14,11 @@ export default async function DashboardLayout({
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50">
-        <NavbarLogin dictionary={dict.navbar} lang={lang}></NavbarLogin>
+      <header className="top-0 w-full z-50">
+        <NavbarDashboard dictionary={dict.navbarDashboard} lang={lang}></NavbarDashboard>
       </header>
 
-      <main className="grow flex items-center justify-center">
+      <main className="grow flex items-center justify-start">
         {children}
       </main>
 

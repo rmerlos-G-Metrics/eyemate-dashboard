@@ -2,7 +2,7 @@
   "hero": {
     "title": "Ocular Intelligence.",
     "highlight": "Absolute Precision.",
-    "subtitle": "Engineering a state-of-the-art biometric sensor with AI to deliver the most accurate, deterministic glaucoma monitoring available today.",
+    "subtitle": "Engineering a state-of-the-art sensor with AI to deliver the most accurate, deterministic glaucoma monitoring available today.",
     "madeBy": "Made by"
   },
   "legal": {
@@ -119,7 +119,15 @@
     "toggleLanguage": "Switch to German",
     "openMenu": "Open main menu",
     "closeMenu": "Close main menu",
-    "loginButton": "Login"
+    "loginButton": "Log in"
+  },
+  "navbarDashboard": {
+    "logoAlt": "Eyemate Logo",
+    "logoutButton": "Log out",
+    "logoutConfirmTitle": "End Session?",
+    "logoutConfirmMessage": "Are you sure you want to log out of the Eyemate Dashboard? You will need to re-authenticate to access the data.",
+    "cancelButton": "Cancel",
+    "confirmLogoutButton": "Log out"
   },
   "login": {
     "title": "Dashboard",
@@ -183,5 +191,32 @@
     "statusResolved": "Resolved",
     "statusUnknown": "Unknown Status",
     "noConditions": "No conditions found."
+  },
+  "widgetWrapper": {
+    "resizeHintTitle": "Layout Mode",
+    "resizeHint": "Drag to move, pull bottom right corner to resize"
+  },
+  "dashboardControlBar": {
+    "doneEditing": "Done Editing",
+    "editLayout": "Edit Layout",
+    "widgetVisibilityHint": "Widget Visibility (Click to toggle)",
+    "activeLayoutLabel": "Active Layout",
+    "createLayoutModal": {
+      "title": "Create New Layout",
+      "description": "Give your new dashboard view a clear name.",
+      "inputLabel": "Layout Name",
+      "placeholder": "Enter layout name...",
+      "defaultViewName": "Custom View",
+      "cancelButton": "Cancel",
+      "submitButton": "Create Layout"
+    },
+    "deleteLayoutModal": {
+      "title": "Delete Layout?",
+      "confirmPrefix": "Are you sure you want to permanently delete the",
+      "confirmSuffix": "view? This action cannot be undone.",
+      "cancelButton": "Cancel",
+      "deleteButton": "Delete"
+    }
+  }
   }
 }

@@ -11,7 +11,7 @@
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 
-export async function initiateSmartLaunch(iss: string, lang: string) {
+export async function initiateSmartLaunch(iss: string, lang: string, role: string) {
   // 1. Fetch the SMART configuration from the Issuer (Discovery)
   const configUrl = `${iss.replace(/\/$/, '')}/.well-known/smart-configuration`;
   
@@ -65,6 +65,13 @@ export async function initiateSmartLaunch(iss: string, lang: string) {
     maxAge: 60*10,
     path: '/'
   });
+
+  cookieStore.set('user_role', role, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 60*10,
+    path: '/'
+  })
 
   // 5. Construct the Authorization URL
   const authUrl = new URL(authEndpoint);
