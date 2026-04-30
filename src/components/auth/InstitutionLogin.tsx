@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { UserRole } from "./AuthContainer";
 import { initiateSmartLaunch } from "@/actions/smartLaunch";
+import { initiateEpicLaunch } from "@/actions/epicLaunch";
 
 interface InstitutionLoginProps {
   dictionary: any;
@@ -35,6 +36,12 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
       issProvider: "https://launch.smarthealthit.org/v/r4/sim/WzIsIiIsIiIsIkFVVE8iLDAsMCwwLCIiLCIiLCIiLCIiLCIiLCIiLCIiLDAsMSwiIl0/fhir",
       issPatient: "https://launch.smarthealthit.org/v/r4/sim/WzMsIiIsIiIsIkFVVE8iLDAsMCwwLCIiLCIiLCIiLCIiLCIiLCIiLCIiLDAsMSwiIl0/fhir"
       //iss: "http://localhost:4013/v/r4/sim/eyJoIjoiMSIsImoiOiIxIn0/fhir"
+    },
+    {
+      id: "epic-sandbox",
+      name: dictionary?.auth?.institutionLogin?.epicSandbox?.name || "EPIC SANDBOX",
+      issProvider: "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4",
+      issPatient: null 
     },
   ];
 
@@ -60,7 +67,11 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
             selectedIss = provider.issPatient
         }
         // pass the ROLE to the action
-        await initiateSmartLaunch(selectedIss, lang, role);
+        if (provider.id === "epic-sandbox") {
+            await initiateEpicLaunch(selectedIss, lang, role);
+        } else {
+            await initiateSmartLaunch(selectedIss, lang, role);
+        }
       } catch (err) {
         console.error("SMART Launch Error:", err);
         setError("Connection failed. Please try again later.");
@@ -84,7 +95,7 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
 
       <div className="flex flex-col items-center mb-8">
         <Image 
-          src="/images/eyemate-logo.png" 
+          src="/images/CORA_Logo_v1.png" 
           alt="G-Metrics eyemate logo" 
           width={120}
           height={40} 

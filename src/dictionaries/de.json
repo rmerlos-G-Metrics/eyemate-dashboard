@@ -173,6 +173,10 @@
         "smartLauncher": {
           "name": "SMART DEMO KRANKENHAUS",
           "description": "FHIR R4 Sandbox-Umgebung"
+        },
+        "epicSandbox": {
+          "name": "EPIC SANDBO",
+          "description": "Epic FHIR R4 Anbieter-Sandbox"
         }
       }
     }

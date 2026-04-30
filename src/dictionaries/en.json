@@ -161,6 +161,10 @@
       "smartLauncher": {
         "name": "SMART DEMO HOSPITAL",
         "description": "FHIR R4 Sandbox Environment"
+      },
+      "epicSandbox": {
+        "name": "EPIC SANDBOX",
+        "description": "Epic FHIR R4 Provider Sandbox"
       }
     },
     "providerPicker": {

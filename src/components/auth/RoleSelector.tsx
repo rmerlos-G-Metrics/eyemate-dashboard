@@ -22,7 +22,7 @@ export default function RoleSelector({ dictionary, onSelect }: RoleSelectorProps
     <div className="w-full bg-health-100/90 backdrop-blur-2xl border border-white/20 shadow-2xl rounded-2xl p-8 sm:p-10">
       <div className="flex flex-col items-center mb-8">
         <Image 
-          src="/images/eyemate-logo.png" 
+          src="/images/CORA_Logo_v1.png" 
           alt="G-Metrics eyemate logo" 
           width={140}
           height={48}

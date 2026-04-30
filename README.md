@@ -1,8 +1,4 @@
-# G-Metrics Clinical Dashboard 👁️
-
-> **Enterprise-grade MedTech platform for Glaucoma monitoring and AI-driven predictive care.**
-
-This repository contains the frontend application for the G-Metrics Clinical Dashboard
+# CORA Dashboard 👁️
 
 ## 🏗️ Architectural Overview
 
