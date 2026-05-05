@@ -68,7 +68,7 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
         }
         // pass the ROLE to the action
         if (provider.id === "epic-sandbox") {
-            await initiateEpicLaunch(selectedIss, lang, role);
+            window.location.href = `/api/auth/epic-login`;
         } else {
             await initiateSmartLaunch(selectedIss, lang, role);
         }

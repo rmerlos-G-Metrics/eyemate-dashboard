@@ -1,0 +1,49 @@
+/**
+ * @author Ricardo Merlos Torres
+ * @email rmerlos@g-metrics.com
+ * @create date 2026-05-05 15:42:40
+ * @modify date 2026-05-05 15:42:40
+ * @desc [description]
+ */
+
+import { NextResponse } from 'next/server';
+import crypto from 'crypto';
+import { cookies } from 'next/headers';
+
+export async function GET(request: Request) {
+  // 1. Capture i18n and context from the incoming request
+  const { searchParams } = new URL(request.url);
+  //const lang = searchParams.get('lang') || 'en';
+
+  // 2. PKCE and State Generation (Your exact PoC logic)
+  const codeVerifier = crypto.randomBytes(32).toString('base64url');
+  const codeChallenge = crypto.createHash('sha256').update(codeVerifier).digest('base64url');
+  const state = crypto.randomBytes(16).toString('hex');
+
+  // 3. Strict Cookie Handling
+  const cookieStore = await cookies();
+  const cookieOptions = { 
+    httpOnly: true, 
+    path: '/'
+  };
+  
+  cookieStore.set('epic_code_verifier', codeVerifier, cookieOptions);
+  cookieStore.set('epic_state', state, cookieOptions);
+  //cookieStore.set('smart_locale', lang, cookieOptions);
+
+  // 4. Construct Authorization URL (Your exact PoC logic)
+  const authUrl = new URL('https://fhir.epic.com/interconnect-fhir-oauth/oauth2/authorize');
+  
+  authUrl.searchParams.append('client_id', process.env.EPIC_CLIENT_ID || ''); 
+  authUrl.searchParams.append('scope', 'launch/patient openid fhirUser patient/Patient.read patient/Condition.read');
+  authUrl.searchParams.append('response_type', 'code');
+  authUrl.searchParams.append('redirect_uri', 'http://localhost:3000/api/auth/epic-callback'); 
+  authUrl.searchParams.append('state', state);
+  authUrl.searchParams.append('code_challenge_method', 'S256');
+  authUrl.searchParams.append('code_challenge', codeChallenge);
+  authUrl.searchParams.append('aud', 'https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4');
+
+  console.log(authUrl.toString());
+
+  return NextResponse.redirect(authUrl.toString());
+}
