@@ -19,8 +19,15 @@ export async function GET(request: Request) {
   const codeVerifier = cookieStore.get('epic_code_verifier')?.value;
   const lang = cookieStore.get('smart_locale')?.value || 'en'; // i18n routing
 
-  if (!code || stateReturned !== stateSaved) {
-    return NextResponse.redirect(new URL(`/${lang}/login?error=auth_mismatch`, request.url));
+  console.log('\n=== 1. CALLBACK HIT (CHECK YOUR TERMINAL) ===');
+  console.log('Code:', code ? 'Exists' : 'Missing');
+  console.log('State Match:', stateReturned === stateSaved);
+
+  if (!code) {
+    return NextResponse.json({ error: 'No code provided' }, { status: 400 });
+  }
+  if (stateReturned !== stateSaved) {
+    return NextResponse.json({ error: 'State mismatch' }, { status: 400 });
   }
 
   // 1. Construct the body (Your exact PoC logic - NO client_id here)
@@ -51,21 +58,30 @@ export async function GET(request: Request) {
 
     const tokenData = await tokenResponse.json();
 
+    console.log('\n=== 3. EPIC RESPONSE ===');
+    console.log('Status:', tokenResponse.status);
+    console.log('Data:', tokenData);
+
     if (!tokenResponse.ok) {
-      console.error('Epic Token Error:', tokenData);
-      return NextResponse.redirect(new URL(`/${lang}/login?error=epic_rejected`, request.url));
+      return NextResponse.json({
+        debug_message: "Epic rejected the token request. Look at 'epic_error' below.",
+        epic_status: tokenResponse.status,
+        epic_error: tokenData
+      }, { status: tokenResponse.status });
     }
 
     // 3. Map to Eyemate Dashboard Standard Cookies
-    const cookieOptions = { httpOnly: true, path: '/', secure: process.env.NODE_ENV === 'production' };
+    const isLocalhost = request.url.includes('localhost') || request.url.includes('127.0.0.1');
+    const cookieOptions = { httpOnly: true, path: '/', secure: !isLocalhost};
     cookieStore.set('fhir_access_token', tokenData.access_token, cookieOptions);
     cookieStore.set('fhir_patient_id', tokenData.patient, cookieOptions);
 
     // 4. Clean up auth state
-    cookieStore.delete('epic_state');
-    cookieStore.delete('epic_code_verifier');
+    //cookieStore.delete('epic_state');
+    //cookieStore.delete('epic_code_verifier');
 
     // 5. Redirect to the Bilingual Dashboard
+    console.log(new URL(`/${lang}/dashboard`, request.url));
     return NextResponse.redirect(new URL(`/${lang}/dashboard`, request.url));
 
   } catch (error) {
