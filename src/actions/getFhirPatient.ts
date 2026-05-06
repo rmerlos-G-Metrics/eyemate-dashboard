@@ -15,7 +15,7 @@ export async function getFhirPatient() {
     const cookieStore = await cookies();
     const token = cookieStore.get('fhir_access_token')?.value;
     const patientId = cookieStore.get('fhir_patient_id')?.value;
-    const iss = cookieStore.get('smart_iss')?.value;
+    const iss = cookieStore.get('fhir_base_url')?.value;
 
     if (!token || !patientId || !iss) {
       return { success: false, message: 'Authentication missing.', data: null };

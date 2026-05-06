@@ -78,8 +78,8 @@ export async function GET(request: Request) {
     cookieStore.set('fhir_base_url', 'https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4', {httpOnly: true, path: '/'});
     cookieStore.set('user_role', 'practitioner', cookieOptions); // Assuming practitioner role for Epic, adjust as needed
     // 4. Clean up auth state
-    //cookieStore.delete('epic_state');
-    //cookieStore.delete('epic_code_verifier');
+    cookieStore.delete('epic_state');
+    cookieStore.delete('epic_code_verifier');
 
     // 5. Redirect to the Bilingual Dashboard
     console.log(new URL(`/${lang}/dashboard`, request.url));

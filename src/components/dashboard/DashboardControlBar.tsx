@@ -333,7 +333,8 @@ export function DashboardControlBar({dictionary}: DashboardControlBarProps) {
                         {/* Right: Actions */}
                         <div className="flex items-center gap-4 justify-self-end">
 
-                            {/* Upload Button */}
+                            {/* Upload Button 
+                            
                             <button
                                 onClick={handleTestUpload}
                                 disabled={isUploading}
@@ -346,6 +347,9 @@ export function DashboardControlBar({dictionary}: DashboardControlBarProps) {
                                 )}
                                 <span>{dictionary?.dashboard?.uploadTestDoc || "Upload PDF"}</span>
                             </button>
+
+                            */}
+                            
                             
                             {/* PDF Button */}
                             {isMounted && !isEditMode && (
@@ -372,6 +376,7 @@ export function DashboardControlBar({dictionary}: DashboardControlBarProps) {
                                     }
                                 </button>
                             )}
+                            
 
                             {/* Edit Mode Button */}
                             <button

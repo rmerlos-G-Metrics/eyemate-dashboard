@@ -52,7 +52,7 @@ const initialState: DashboardState = {
                 //{i: "w-test", x:4, y:10, w:3, h:4, minW:2, minH:2, isVisible:true},
                 //{i: "w-test-invisible", x:4, y:10, w:3, h:4, minW:2, minH:2, isVisible:false},
                 //{i: "sys-diagnostics", x:0, y:3, w:4, h:4, minW:3, minH:3, isVisible: true },
-                {i: "patientCondition", x:0, y:0, w:4, h:4, minW:2, minH:4, maxW:4, maxH:4, isVisible: true },
+                {i: "patientCondition", x:0, y:0, w:4, h:4, minW:2, minH:4, maxW:4, maxH:4, isVisible: false },
                 //{i: "iopWidget", x:4, y:7, w:8, h:5, minW:3, minH:5, isVisible: true },
                 {i: "heatmapWidget", x:0, y:4, w:6, h:3, minW:3, minH:3, isVisible: true },
                 {i: "animatedIopWidget", x:7, y:4, w:6, h:3, minW:3, minH:3, isVisible: true },
@@ -60,7 +60,7 @@ const initialState: DashboardState = {
                 {i: "ewmaIopWidget", x:6, y:12, w:6, h:5, minW:3, minH:3 , isVisible: true },
                 {i: "waterfallWidget", x:0, y:12, w:6, h:5, minW:3, minH:5 , isVisible: true },
                 {i: "hourlyIopWidget", x:4, y:7, w:8, h:5, minW:3, minH:5 , isVisible: true },
-                {i: "quickViewWidget", x:4, y:0, w:8, h:4, minW:2, minH:2 , isVisible: true },
+                {i: "quickViewWidget", x:0, y:0, w:12, h:4, minW:2, minH:2 , isVisible: true },
             ]
         }
     ]

@@ -15,7 +15,7 @@ export async function getFhirConditions() {
     const cookieStore = await cookies();
     const token = cookieStore.get('fhir_access_token')?.value;
     const patientId = cookieStore.get('fhir_patient_id')?.value;
-    const iss = cookieStore.get('smart_iss')?.value;
+    const iss = cookieStore.get('fhir_base_url')?.value;
 
     if (!token || !patientId || !iss) {
       return { success: false, message: 'Authentication missing.', data: [] };
@@ -27,6 +27,8 @@ export async function getFhirConditions() {
       headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' },
       cache: 'no-store' 
     });
+    
+    console.log('FHIR Conditions Response:', response);
 
     if (!response.ok) {
       return { success: false, message: `Failed to fetch conditions: ${response.status}`, data: [] };
