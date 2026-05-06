@@ -75,7 +75,8 @@ export async function GET(request: Request) {
     const cookieOptions = { httpOnly: true, path: '/', secure: !isLocalhost};
     cookieStore.set('fhir_access_token', tokenData.access_token, cookieOptions);
     cookieStore.set('fhir_patient_id', tokenData.patient, cookieOptions);
-
+    cookieStore.set('fhir_base_url', 'https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4', {httpOnly: true, path: '/'});
+    cookieStore.set('user_role', 'practitioner', cookieOptions); // Assuming practitioner role for Epic, adjust as needed
     // 4. Clean up auth state
     //cookieStore.delete('epic_state');
     //cookieStore.delete('epic_code_verifier');
