@@ -19,7 +19,7 @@ export async function GET(request: Request) {
   const codeVerifier = cookieStore.get('epic_code_verifier')?.value;
   const lang = cookieStore.get('smart_locale')?.value || 'en'; // i18n routing
 
-  console.log('\n=== 1. CALLBACK HIT (CHECK YOUR TERMINAL) ===');
+  console.log('\n=== 1. CALLBACK HIT ===');
   console.log('Code:', code ? 'Exists' : 'Missing');
   console.log('State Match:', stateReturned === stateSaved);
 

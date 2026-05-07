@@ -43,6 +43,12 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
       issProvider: "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4",
       issPatient: null 
     },
+    {
+      id: "mock-health-sandbox",
+      name: dictionary?.auth?.institutionLogin?.mockHealthSandbox?.name || "MOCK HEALTH SANDBOX",
+      issProvider: process.env.MOCK_AUTH_URL || "",
+      issPatient: null
+    },
   ];
 
   const handleLaunch = () => {
@@ -69,6 +75,8 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
         // pass the ROLE to the action
         if (provider.id === "epic-sandbox") {
             window.location.href = `/api/auth/epic-login`;
+        } else if (provider.id === "mock-health-sandbox") {
+            window.location.href = `/api/auth/mock-health-login`;
         } else {
             await initiateSmartLaunch(selectedIss, lang, role);
         }

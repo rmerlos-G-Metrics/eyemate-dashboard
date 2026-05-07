@@ -31,6 +31,8 @@ export async function getFhirPatient() {
       cache: 'no-store' 
     });
 
+    console.log('FHIR Patient Response:', response);
+
     if (!response.ok) {
       return { success: false, message: `Failed to fetch patient: ${response.status}`, data: null };
     }

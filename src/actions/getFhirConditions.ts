@@ -28,7 +28,7 @@ export async function getFhirConditions() {
       cache: 'no-store' 
     });
     
-    console.log('FHIR Conditions Response:', response);
+    //console.log('FHIR Conditions Response:', response);
 
     if (!response.ok) {
       return { success: false, message: `Failed to fetch conditions: ${response.status}`, data: [] };
