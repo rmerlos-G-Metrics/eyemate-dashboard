@@ -14,6 +14,7 @@ import Image from "next/image";
 import { UserRole } from "./AuthContainer";
 import { initiateSmartLaunch } from "@/actions/smartLaunch";
 import { initiateEpicLaunch } from "@/actions/epicLaunch";
+import { name } from "plotly.js/lib/scatter";
 
 interface InstitutionLoginProps {
   dictionary: any;
@@ -49,6 +50,12 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
       issProvider: process.env.MOCK_AUTH_URL || "",
       issPatient: null
     },
+    {
+      id: "cerner-sandbox",
+      name: dictionary?.auth?.institutionLogin?.cernerSandbox?.name || "CERNER SANDBOX",
+      issProvider: process.env.CERNER_AUTH_URL || "",
+      issPatient: null
+    }
   ];
 
   const handleLaunch = () => {
@@ -74,9 +81,11 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
         }
         // pass the ROLE to the action
         if (provider.id === "epic-sandbox") {
-            window.location.href = `/api/auth/epic-login`;
+          window.location.href = `/api/auth/epic-login`;
         } else if (provider.id === "mock-health-sandbox") {
-            window.location.href = `/api/auth/mock-health-login`;
+          window.location.href = `/api/auth/mock-health-login`;
+        } else if (provider.id === "cerner-sandbox") {
+          window.location.href = `/api/auth/cerner-login`; 
         } else {
             await initiateSmartLaunch(selectedIss, lang, role);
         }
