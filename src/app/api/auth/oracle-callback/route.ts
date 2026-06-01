@@ -109,6 +109,7 @@ export async function GET(request: Request) {
         cookieStore.set('fhir_access_token', tokenData.access_token, cookieOptions);
         cookieStore.set('fhir_patient_id', tokenData.patient, cookieOptions);
         cookieStore.set('fhir_base_url', process.env.CERNER_OPEN_URL || '', cookieOptions);
+        cookieStore.set('user_role', 'practitioner', cookieOptions); 
         
         console.log("🧹 [Cleanup] Deleting temporary cerner auth cookies");
         cookieStore.delete('cerner_state');
@@ -119,7 +120,8 @@ export async function GET(request: Request) {
         console.log("=============================================\n");
         
         // Redirect to your Dashboard
-        return NextResponse.redirect(new URL(`/dashboard`, request.url));
+        //return NextResponse.redirect(new URL(`/dashboard`, request.url));
+        return NextResponse.redirect(new URL(`/patient-search`, request.url));
 
     } catch (error) {
         console.error('❌ [CRITICAL ERROR] Token exchange fetch failed:', error);

@@ -45,12 +45,6 @@ export default function InstitutionLogin({ dictionary, role, onBack, lang }: Ins
       issPatient: null 
     },
     {
-      id: "mock-health-sandbox",
-      name: dictionary?.auth?.institutionLogin?.mockHealthSandbox?.name || "MOCK HEALTH SANDBOX",
-      issProvider: process.env.MOCK_AUTH_URL || "",
-      issPatient: null
-    },
-    {
       id: "cerner-sandbox",
       name: dictionary?.auth?.institutionLogin?.cernerSandbox?.name || "CERNER SANDBOX",
       issProvider: process.env.CERNER_AUTH_URL || "",
